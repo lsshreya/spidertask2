@@ -1,0 +1,88 @@
+<html>
+<head>
+<script>
+function validate() 
+{ 
+  
+if( document.myForm.name.value == "" ) 
+{ 
+     alert( "Please provide your name!" ); 
+     document.myForm.name.focus() ; 
+     return false; 
+} 
+if( document.myForm.roll.value == "" ) 
+{ 
+     alert( "Please provide your Roll Number!" ); 
+     document.myForm.roll.focus() ; 
+     return false;  
+} 
+if(isNaN(document.myForm.roll.value) || document.myForm.roll.value.length!=9)
+{
+alert("Please enter a valid roll number");
+document.myForm.roll.focus() ; 
+     return false; 
+}
+if( document.myForm.dept.value == "-1" ) 
+   { 
+     alert( "Please provide your department!" ); 
+     return false; 
+   } 
+if( document.myForm.email.value == "" ) 
+{ 
+     alert( "Please provide your email!" ); 
+     document.myForm.email.focus() ; 
+     return false; 
+} 
+var emailID = document.myForm.email.value; 
+   atpos = emailID.indexOf("@"); 
+   dotpos = emailID.lastIndexOf("."); 
+   
+if (atpos < 1 || ( dotpos - atpos != 5 ))  
+   { 
+       alert("Please enter correct email ID") 
+       document.myForm.email.focus() ; 
+       return false; 
+   } 
+  else
+{
+alert("Form has been submitted");
+}
+  
+} 
+
+</script> 
+
+<body>
+<br><br>
+
+<form name="myForm"onSubmit="return(validate())">
+
+Name: <input type="text" id="name" size="20"><br><br>
+Roll number: <input type="text" id="roll" size="20"> <br><br>
+Department: <select name="dept">
+<option value="-1">Select</option>
+  <option value="CSE">CSE</option>
+  <option value="ECE">ECE</option>
+  <option value="EEE">EEE</option>
+  <option value="ICE">ICE</option>
+  <option value="MECH">MECH</option>
+<option value="META">META</option>
+<option value="PROD">PROD</option>
+<option value="CHEM">CHEM</option>
+<option value="ARCHI">ARCHI</option>
+</select>
+<br><br>
+E-Mail Id: <input type="text" id="email" size="20"><br><br>
+Physical Address: <br><br><textarea cols="40"rows="5" id="phy"> 
+</textarea>
+<br><br>
+About me: <br><br><textarea cols="40"rows="5" id="about"> 
+</textarea>
+<br>
+<br>
+<input type="submit" value="Submit">
+<input type="reset" value="Reset">
+
+</form>
+</body>
+</html>
